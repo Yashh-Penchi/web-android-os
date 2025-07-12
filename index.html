@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Android OS</title>
+  <link rel="stylesheet" href="./CSS/style.css" />
+  <link rel="stylesheet" href="./CSS/responsive.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main>
+    <div id="barr">
+      <svg width="40%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <path id="svgPath" d="M 10 20 Q 55 20 100 20" stroke="white" stroke-width="3" fill="none" />
+      </svg>
+    </div>
+
+    <div id="camra">
+      <div id="camraDot"></div>
+    </div>
+
+    <div id="notch">
+      <div id="notchLeft">
+        <div id="currentTimeContainer">
+          <h5 id="currentTime">00:00</h5>
+        </div>
+        <div id="notifications">
+          <div id="noti1">🎵</div>
+          <div id="noti3">📰</div>
+          <div id="noti4">🗨️</div>
+          <div id="noti5">⚽</div>
+        </div>
+      </div>
+      <div id="notchRight">
+        <div style="transition: scale 0.3s ease, rotate ease-in-out 0.1s; padding-right: 2px" id="deviceFn1">⏰</div>
+        <div style="transition: scale 0.3s ease; padding-right: 4px" id="wifi"><i class="ri-wifi-line"></i></div>
+        <div style="display: flex; align-items: center" id="battery">
+          <span id="batteryIcon"
+            style="transform: rotate(90deg); display: inline-block; transition: scale 0.3s ease">🔋</span><span
+            id="batteryPrcntz">100</span>
+        </div>
+      </div>
+    </div>
+
+
+    <!--------------------- B l a c k  S c r e e n -->
+
+    <!-- // automatic black screen after 5 seconds of inactivity -->
+
+    <div id="blackScreen">
+      <div id="blackScreenText">
+        <span id="blackScreenTime">00:00</span>
+      </div>
+      <script>
+        const blackScreen = document.getElementById('blackScreen');
+        const blackScreenTime = document.getElementById('blackScreenTime');
+        let inactivityTimeout; //user not working or not operating the device
+
+        // Update time every second
+        function updateBlackScreenTime() {
+          const now = new Date();
+          const hours = now.getHours().toString().padStart(2, '0');
+          const minutes = now.getMinutes().toString().padStart(2, '0');
+          const second = now.getSeconds().toString().padStart(2, '0');
+          const day = now.getDay().toString().padStart(2, '0');
+          blackScreenTime.textContent = `${hours}:${minutes}:${second}`;
+        }
+
+        setInterval(updateBlackScreenTime, 1000);
+        updateBlackScreenTime();
+
+        // Show black screen
+        function showBlackScreen() {
+          blackScreen.style.display = 'flex';
+          setTimeout(() => {
+            blackScreen.style.opacity = '1';
+          }, 10); // fade transition
+        }
+
+        // Hide black screen
+        function hideBlackScreen() {
+          blackScreen.style.opacity = '0';
+          setTimeout(() => {
+            blackScreen.style.display = 'none';
+          }, 300); // match transition duration
+        }
+
+        // Reset inactivity timer
+        function resetInactivityTimer() {
+          clearTimeout(inactivityTimeout);
+          hideBlackScreen();
+
+          inactivityTimeout = setTimeout(() => {
+            showBlackScreen();
+          }, 10000); // 10 seconds
+        }
+
+        // User activity events (touch/mouse/keyboard)
+
+        ['touchstart', 'mousedown', 'keydown'].forEach((event) => {  // also use 'mousemove'
+          document.addEventListener(event, resetInactivityTimer);
+        });
+
+        // Start the timer initially
+        resetInactivityTimer();
+
+      </script>
+    </div>
+
+
+    <!-- HomeScreen ---------------------------------------------------------------------------------->
+
+    <div id="HomePage">
+      <div id="notchBG"></div>
+      <div id="googleSearch">
+        <div id="googleSearchDiv">
+          <div id="googleLogo"><img src="./Img/b68fe1dd69295871e2830a38fff4c6e9.jpg" /></div>
+          <span id="input"></span>
+          <div id="micLens">
+            <div id="googleMic" style="background-color: #ffffff00"><i class="ri-mic-2-fill"></i></div>
+            <div id="googleLens"><i class="ri-camera-lens-ai-fill"></i></div>
+          </div>
+        </div>
+      </div>
+      <div id="bottomAppSearch">Home</div>
+      <div id="bottomAppList">
+        <div id="AppMSG"><i class="ri-chat-1-fill"></i> <span></span></div>
+        <div id="AppCall"><i class="ri-phone-fill"></i></div>
+        <div id="AppCamara"><i class="ri-camera-fill"></i></div>
+      </div>
+      <div id="googlePageShow">
+        <div id="googleSearchDiv1">
+          <div id="backGo"><i class="ri-arrow-left-line"></i></i></div>
+          <div id="googleLogo"><i class="ri-google-fill"></i></div>
+          <input type="text" id="searchQuery" placeholder="Search...">
+          <div id="micLens">
+            <div id="googleMic" style="cursor: pointer;" style="background-color: #ffffff00"><i
+                class="ri-mic-2-fill"></i></div>
+            <div style="cursor: pointer;" id="searchBtn"><i class="ri-search-line"></i></div>
+          </div>
+        </div>
+        <!-- result countainer  -->
+        <div id="searchBox">
+          <div class="gcse-searchresults-only"></div>
+        </div>
+        <div id="showRecent">
+          <div id="recent">
+            <i class="ri-history-line"></i>
+            <h5>Game Of Thrones</h5>
+          </div>
+          <div id="recent">
+            <i class="ri-history-line"></i>
+            <h5>Ind Text Score</h5>
+          </div>
+          <div id="recent">
+            <i class="ri-history-line"></i>
+            <h5>RGPV Result</h5>
+          </div>
+          <div id="recent">
+            <i class="ri-history-line"></i>
+            <h5>JAVA</h5>
+          </div>
+          <div id="recent">
+            <i class="ri-history-line"></i>
+            <h5>How To get Gun License</h5>
+          </div>
+          <div id="recent">
+            <i class="ri-history-line"></i>
+            <h5>Gun Actual Price with their Ammo</h5>
+          </div>
+          <div id="recent">
+            <i class="ri-history-line"></i>
+            <h5>Linux Installation Process</h5>
+          </div>
+          <div id="recent">
+            <i class="ri-history-line"></i>
+            <h5>Kali Linux Install</h5>
+          </div>
+          <div id="recent">
+            <i class="ri-history-line"></i>
+            <h5>Top Java Compiler</h5>
+          </div>
+          <div id="recent">
+            <i class="ri-history-line"></i>
+            <h5>How to disable Snapchat Temporarily</h5>
+          </div>
+
+        </div>
+      </div>
+      <div id="HomePage1" style="left: 100%">
+        <div id="notchBG"></div>
+
+        <div id="noteBar">
+          <div id="icon1" class="icons" style="font-size: 5vh; font-weight: 200; color: #222">+</div>
+          <div id="icon2" class="icons">✓</div>
+          <div id="icon3" class="icons"><i class="ri-mic-2-fill"></i></div>
+          <div id="icon4" class="icons"></div>
+          <div id="icon5" class="icons"><i class="ri-camera-lens-ai-fill"></i></div>
+        </div>
+
+        <div id="appsColoum">
+          <div id="coloum1" class="coloum">
+            <div id="appp1" class="apps" style="color: #ffffff; display: flex;
+              align-items: center;
+              justify-content: center; font-size: 3vh;"><i class="ri-whatsapp-fill"></i></div>
+            <div id="appp2" class="apps" style="color: #ffffff; background-color: rgb(0, 149, 255); display: flex;
+              align-items: center;
+              justify-content: center; font-size: 3vh;"><i class="ri-paypal-fill"></i></div>
+            <div id="appp3" class="apps"></div>
+            <div id="appp4" class="apps AppMusic" style="color: #ffffff; display: flex;
+              align-items: center;
+              justify-content: center; font-size: 3vh;"><i class="ri-disc-fill"></i></div>
+            <div id="appp5" class="apps AppCalculator" style="color: #222; display: flex;
+              align-items: center;
+              justify-content: center; font-size: 3vh;"><i class="ri-calculator-line"></i></div>
+          </div>
+
+          <div id="coloum2" class="coloum">
+            <div id="appp6" class="apps instagram" style="color: #ffffff; display: flex;
+              align-items: center;
+              justify-content: center; font-size: 3vh;"><i class="ri-instagram-fill"></i></div>
+            <div id="appp7" class="apps todoApp" style="color: #1b1b1b; display: flex;
+              align-items: center;
+              justify-content: center; flex-direction: column; font-size: 2vh;">
+              <h5>TODO</h5><i class="ri-task-fill"></i>
+            </div>
+            <div id="appp8" class="apps AppYoutube" style="color: #ff0000; display: flex;
+              align-items: center;
+              justify-content: center; font-size: 3vh;"><i class="ri-youtube-fill"></i></div>
+            <div id="appp9" class="apps AppGoogleMap" style="color: #222; display: flex;
+              align-items: center;
+              justify-content: center; font-size: 3vh;"><i class="ri-map-pin-2-fill"></i></div>
+            <div id="appp10" class="apps AppSettings" style="color: #ffffff; display: flex;
+              align-items: center;
+              justify-content: center; font-size: 3vh;"><i class="ri-settings-5-fill"></i></div>
+          </div>
+
+          <div id="coloum3" class="coloum">
+            <div id="app1" class="appsss">
+              <div id="calander">
+                <div id="calanderMoon">🌗</div>
+                <div id="calanderDay">21</div>
+                <div id="calanderDetails" style="color: rgb(174, 255, 174)">Shukla</div>
+                <div id="calanderDetails" style="color: rgb(229, 59, 98)">Jyeshtha</div>
+                <div id="calanderDetails" style="color: rgb(0, 255, 0)">Mrigashitrsha</div>
+                <div id="calanderDetails" style="color: rgb(230, 0, 255)">Vrishava</div>
+                <div id="calanderDetails" style="color: rgb(163, 241, 255)">Mangalvara</div>
+                <div id="calanderDetails" style="color: rgb(207, 207, 207)">2082 Vikaram Samvat</div>
+              </div>
+            </div>
+            <div id="app2" class="appsss">
+              <div id="appSong">
+                <img src="./Img/music1.png">
+              </div>
+            </div>
+            <div id="app3" class="appsss">
+              <div id="apppp1" class="apppp AppGames" style="color: #222; display: flex;
+              align-items: center;
+              justify-content: center; font-size: 3vh;"><i class="ri-gamepad-fill"></i></div>
+              <div id="apppp2" class="apppp"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Camara App -->
+    <div id="camaraApp" class="appWindow">
+      <div id="topHeaderTools">
+        <span class="HeaderTools" id="tool1-Flash"><i class="ri-flashlight-line"></i></span>
+        <span class="HeaderTools" id="tool2-HDR"><i class="ri-hd-line"></i></span>
+        <span class="HeaderTools" id="tool3-Colour"><i class="ri-pantone-line"></i></span>
+        <span class="HeaderTools filterButton" id="tool4-Filter"><i class="ri-color-filter-ai-line"></i></span>
+        <span class="HeaderTools" id="tool5-Setting"><i class="ri-settings-line"></i></span>
+      </div>
+
+      <div id="camaraDisplay">
+        <video id="cameraDisplayShow" autoplay playsinline></video>
+        <div id="flashOverlay"></div>
+        <!-- <div id="flashCircleOverlay"></div> -->
+
+        <div id="inCamaraTools">
+          <span class="CamaraTools" id="tool1-Lens"><i class="ri-camera-lens-ai-fill"></i></span>
+          <span class="" id="tool2-zoom">
+            <div id="zoomLevels">
+              <span class="level" id="level1">1x</span>
+              <span class="level" id="level2">•</span>
+              <span class="level" id="level3">•</span>
+            </div>
+          </span>
+          <span class="CamaraTools" id="tool3-Retouch"><i class="ri-tent-fill"></i> </span>
+        </div>
+      </div>
+      <div id="mainBottomModes">
+        <span class="camaraModes" id="modeNight">NIGHT</span><span class="camaraModes" id="modeVideo">VIDEO</span><span
+          class="camaraModes" id="modePhoto">PHOTO</span><span class="camaraModes"
+          id="modePortrait">PORTRAIT</span><span class="camaraModes" id="modeMore">MORE</span>
+      </div>
+      <div id="mainBottomTools">
+        <span class="bottomTools" id="recentPhotos"><img src="./Img/Picsart_24-08-10_00-04-37-814.jpg" /></span>
+        <span class="bottomTools" id="camaraTrigger"></span>
+        <span class="bottomTools" id="camaraChange">📷</span>
+      </div>
+    </div>
+
+
+    <!-- For Call  -->
+
+    <div id="forCallApp" class="appWindow">
+
+      <div class="callMainContent" id="mainContent">
+        <header>
+
+          <div id="buttons">
+            <!-- <input placeholder="Search..." id="searchhh" type="text" /> -->
+            <h3 id="searchh"
+              style="display: inline; user-select: none; transition: transform 0.3s ease; cursor: pointer">
+              🔎
+            </h3>
+            <h3 id="Headerstar" style="display: inline; padding-left: 5px; transition: transform 0.3s ease">⭐</h3>
+          </div>
+          <h1 id="title">Contacts</h1>
+          <p style="color: #fff; padding: 0; margin: 0; user-select: none" id="totalContact">
+            <span id="totalContactValue">from JS</span> contects
+          </p>
+        </header>
+
+        <div id="content">
+          <!-- from js -->
+        </div>
+
+        <footer style="user-select: none">
+          <div
+            style="display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer"
+            id="Calls">
+            <span id="CallsIcon">📞</span><span id="calll">Calls</span>
+          </div>
+          <div id="Contacts" style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+              ">
+            <span id="ContactsIcon">📅</span><span id="conttt">Contacts</span>
+          </div>
+        </footer>
+        <div id="letter"></div>
+        <!-- <div id="bar"></div> -->
+        <div style="cursor: pointer; user-select: none" id="addContect">×</div>
+      </div>
+
+      <div id="callBar">
+        <div id="littleNotch"></div>
+        <div id="1,2,3" class="dialBtnGroup">
+          <span class="dialBtn groupBtns" id="1">
+            <h3>1</h3>
+            <h5>⏔</h5>
+          </span>
+          <span class="dialBtn groupBtns" id="2">
+            <h3>2</h3>
+            <h5>ABC</h5>
+          </span>
+          <span class="dialBtn groupBtns" id="3">
+            <h3>3</h3>
+            <h5>DEF</h5>
+          </span>
+        </div>
+        <div id="4,5,6" class="dialBtnGroup">
+          <span class="dialBtn groupBtns" id="4">
+            <h3>4</h3>
+            <h5>GHI</h5>
+          </span>
+          <span class="dialBtn groupBtns" id="5">
+            <h3>5</h3>
+            <h5>JKL</h5>
+          </span>
+          <span class="dialBtn groupBtns" id="6">
+            <h3>6</h3>
+            <h5>MNO</h5>
+          </span>
+        </div>
+        <div id="7,8,9" class="dialBtnGroup">
+          <span class="dialBtn groupBtns" id="7">
+            <h3>7</h3>
+            <h5>PQRS</h5>
+          </span>
+          <span class="dialBtn groupBtns" id="8">
+            <h3>8</h3>
+            <h5>TUV</h5>
+          </span>
+          <span class="dialBtn groupBtns" id="9">
+            <h3>9</h3>
+            <h5>WXYZ</h5>
+          </span>
+        </div>
+        <div id="*,0,#" class="dialBtnGroup">
+          <span class="dialBtn groupBtns" id="*">
+            <h3>*</h3>
+            <h5>,</h5>
+          </span>
+          <span class="dialBtn groupBtns" id="0">
+            <h3>0</h3>
+            <h5>+</h5>
+          </span>
+          <span class="dialBtn groupBtns" id="#">
+            <h3>#</h3>
+            <h5>;</h5>
+          </span>
+        </div>
+        <div id="⁛,‿,←" class="dialBtnGroup">
+          <span class="dialBtn groupBtns" id="⁛" style="margin: 0 3px 0 7px">
+            <h3><i class="ri-grid-fill"></i></h3>
+          </span>
+          <span onclick="call();" class="dialBtn groupBtns" id="‿">
+            <h3 style="
+                  color: white;
+                  background-color: #08c97f;
+                  padding: 8px 10px;
+                  border-radius: 50px;
+                  margin-left: -13px;
+                ">
+              <i class="ri-phone-fill"></i>
+            </h3>
+          </span>
+          <span onclick="" class="dialBtn groupBtns" id="←" style="margin-right: 0 2px 0 -2px">
+            <h3><i class="ri-delete-back-fill"></i></h3>
+          </span>
+        </div>
+      </div>
+      <div id="callBarScreen"></div>
+
+      <!-- add contact page  -->
+
+      <div id="addContactPage">
+        <div id="topHeader">
+          <span style="cursor: pointer; color: #0f948b; font-size: 1.7vh; font-weight: 200"
+            id="header1">Cancel</span><span id="header2" style="font-size: 2vh; font-weight: 300">New
+            Contact</span><span id="header3"
+            style="cursor: pointer; color: #0f948b; font-size: 1.7vh; font-weight: 200">Done</span>
+        </div>
+        <div id="logoAndEmail">
+          <div id="logo" style="cursor: alias; user-select: none">
+            <img src="./Img/Picsart_24-08-10_00-04-37-814.jpg" />
+          </div>
+          <div id="email" style="display: flex; align-items: center; justify-content: center; gap: 5px">
+            <span style="color: #fff; font-size: 1.7vh; opacity: 0.7; font-weight: 500">Save to </span><span
+              style="font-size: 2vh; color: #fff; opacity: 1; font-weight: 500; cursor: pointer">Google</span>
+          </div>
+        </div>
+        <div id="details">
+          <div class="details" id="basicDetails">
+            <input style="border-bottom: 1px solid rgba(255, 255, 255, 0.191)" placeholder="Name" type="text" /><input
+              placeholder="Phonetic Name" type="text" />
+          </div>
+          <div class="details" id="numberDetails"><input class="no-spinner" type="number" placeholder="Number" /></div>
+          <div class="details" id="emailDetails"><input type="email" placeholder="Email" /></div>
+          <div class="details" id="advanceDetails">
+            <input type="text" placeholder="Company"
+              style="border-bottom: 1px solid rgba(255, 255, 255, 0.191)" /><input placeholder="Job Title" type="text"
+              style="border-bottom: 1px solid rgba(255, 255, 255, 0.191)" /><input placeholder="Address" type="text"
+              style="border-bottom: 1px solid rgba(255, 255, 255, 0.191)" /><input placeholder="Website url"
+              type="url" />
+          </div>
+        </div>
+
+        <div style="cursor: pointer" id="addContactClose">+</div>
+      </div>
+
+    </div>
+
+
+    <!-- --------------------- Calculator App ---- -->
+
+    <div id="calculatorApp" class="appWindow">
+      <div class="displayCalculatorDiv">
+        <h1 id="displayCalculatorInputs">0</h1>
+        <h1 id="displayCalculatorResult"></h1>
+      </div>
+
+      <div class="btnsCalculator">
+        <!-- Top Row -->
+        <button id="clear" onclick="clearDisplay()">C</button>
+        <button id="percent" onclick="specialKeyPercent()">%</button>
+        <button id="back" onclick="deleteLast()">⌫</button>
+        <button id="divide" onclick="appendToDisplay('/')">÷</button>
+
+        <!-- Second Row -->
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button id="multiply" onclick="appendToDisplay('*')">×</button>
+
+        <!-- Third Row -->
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button id="subtract" onclick="appendToDisplay('-')">−</button>
+
+        <!-- Fourth Row -->
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button id="add" onclick="appendToDisplay('+')">+</button>
+
+        <!-- Fifth Row -->
+        <button onclick="appendToDisplay('00')">00</button>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button id="oddEven" onclick="specialKeyOE()">O/E</button>
+
+        <!-- Extra Function Buttons -->
+        <button id="Half" onclick="specialKeyHalf()">Half</button>
+        <button id="Square" onclick="specialKeySquare()">Sqr</button>
+        <button id="Cube" onclick="specialKeyCube()">Cube</button>
+        <button id="equal" onclick="calculateResult()">=</button>
+      </div>
+    </div>
+
+
+    <!-- Instagrame App  -->
+
+    <div id="instagramApp" class="appWindow">
+      <div class="instaHeader">
+        <h3>Instagram</h3>
+        <div class="instaIcons">
+          <i class="ri-heart-line" onclick="alert('Ab Yeh Bhi banaoo, hat 🤨')"></i>
+          <i class="ri-chat-3-line" onclick="alert('Ab Tumhe Sab Karke Do 😏')"></i>
+        </div>
+      </div>
+
+      <div class="instaStorySection">
+        <div class="storyBubble">😊</div>
+        <div class="storyBubble">👨‍💻</div>
+        <div class="storyBubble">🚀</div>
+        <div class="storyBubble">🌄</div>
+        <div class="storyBubble">🎉</div>
+        <div class="storyBubble">👨</div>
+        <div class="storyBubble">⚡</div>
+        <div class="storyBubble">😎</div>
+        <div class="storyBubble">⭐</div>
+        <div class="storyBubble">😺</div>
+      </div>
+
+      <div class="instaFeed">
+        <div class="post">
+          <div class="postHeader">
+            <span style="cursor: pointer;" onclick="window.open('https://www.instagram.com/21__Yashh', '_blank')">
+              👩‍🎨 21__Yashh</span>
+            <i class="ri-more-2-fill"></i>
+          </div>
+          <div class="postImage"><img
+              src="./Img/Photo_with_Baddu__trashed-1751465832-Picsart_25-05-30_01-05-34-758.jpg"></div>
+          <div class="postActions">
+            <i class="ri-heart-line" onclick="this.classList.toggle('liked')"></i>
+            <i class="ri-chat-3-line"></i>
+            <i class="ri-send-plane-line"></i>
+            <i class="ri-bookmark-line" style="margin-left:auto;"></i>
+          </div>
+          <div class="postCaption">
+            <strong>artlover</strong> Glowing Picture ⚡❣️ !!...
+          </div>
+        </div>
+        <!-- Add .post -->
+      </div>
+    </div>
+
+
+    <!-- ToDo App  -->
+
+    <div id="todoApp" class="appWindow">
+      <div class="todoHeader">
+        <h2>📝 To-Do List</h2>
+      </div>
+      <div class="todoInputSection">
+        <input type="text" id="todoInput" placeholder="Add new task..." />
+        <button id="addTodoBtn">➕</button>
+      </div>
+      <ul id="todoList"></ul>
+    </div>
+
+
+    <!-- Youtube  -->
+
+    <div id="youtubeApp" class="appWindow">
+  <div class="ytHeader">
+    <h3>YouTube</h3>
+    <div class="ytIcons">
+      <i class="ri-notification-line"></i>
+      <i class="ri-search-line"></i>
+    </div>
+  </div>
+
+  <div class="ytFeed">
+    <div class="ytVideoCard">
+      <div class="ytThumbnail">🎥</div>
+      <div class="ytVideoInfo">
+        <div class="ytTitle">Live Coding 🔴</div>
+        <div class="ytMeta">Yashh Dev • 5.4K watching</div>
+      </div>
+    </div>
+  <!-- </div> -->   
+  <!--  agar yeh upper wali /div uncommented hai toh yeh neeche wali video alag popup show hogi (highlited rahegi) -->
+
+    <div class="ytVideoCard">
+      <div class="ytThumbnail">🎬</div>
+      <div class="ytVideoInfo">
+        <div class="ytTitle">ReactJS Tutorial (Live) by Yashh</div>
+        <div class="ytMeta">CodeWithYashh • 3.1K watching</div>
+      </div>
+    </div>
+    <!-- Add more cards -->
+  </div>                                   <!-- to yeh wali /div ko comment karna hoga -->
+</div>
+
+
+  </main>
+
+
+
+  <!-- Google CSE Script (My ID used here) -->
+  <!-- <script src="https://cse.google.com/cse.js?cx=974a03c9ae3a8495d" onload="onGoogleLoad()"></script> -->
+
+  <!-- <script type="text/javascript">
+    function onGoogleLoad() {
+      const searchBtn = document.getElementById("searchBtn");
+      const searchInput = document.getElementById("searchQuery");
+
+      function doSearch() {
+        const query = searchInput.value.trim();
+        if (query !== "") {
+          google.search.cse.element.getElement("gcse-searchresults-only").execute(query);
+        }
+      }
+
+      if (searchBtn && searchInput) {
+        searchBtn.addEventListener("click", doSearch);
+        searchInput.addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            doSearch();
+          }
+        });
+      }
+    }
+  </script> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+    integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script type="module" src="./JS/contact.js"></script>
+  <script type="module" src="./JS/contactData.js"></script>
+  <script type="module" src="./JS/callPage.js"></script>
+  <script type="module" src="./JS/calculator.js"></script>
+  <script type="module" src="./JS/toDoApp.js"></script>
+  <script type="module" src="./JS/youtubeApp.js"></script>
+  <script type="module" src="./JS/home.js"></script>
+  <script src="./JS/script.js"></script>
+
+
+</body>
+
+</html>

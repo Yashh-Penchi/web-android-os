@@ -1,0 +1,38 @@
+@media (max-width: 850px) {
+  
+  #notch{
+    padding: 0 3vh;
+  }
+  #currentTime{
+    font-size: 1.5vh;}
+    #notifications{
+      font-size: 1.7vh;
+    }
+    #batteryPrcntz{
+      font-size: 1.6vh;
+      font-weight: 250;
+    }
+    #content{
+      padding-top: 2.3vh;
+    }
+    #contectLogo img {
+      padding: 1.9vh;
+    }
+    #totalContact{
+      font-size: 2vh
+    }
+    #addContect{
+      font-size: 4.5vh;
+    }
+    #calll, #conttt, footer{
+      font-size: 1.6vh
+    }
+      footer #Calls #CallsIcon{font-size: 2.0vh;}
+  footer #Contacts #ContactsIcon{font-size: 2.0vh;}
+    .dialBtn h5{
+      font-size: 1.3vh;
+  }
+  .dialBtnGroup{
+    font-size: 2vh;
+  }
+}

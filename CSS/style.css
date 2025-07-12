@@ -1,0 +1,1605 @@
+/*----------------------- Scrollbar --------------------------------*/
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #3b3b3b;
+  border: none;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1f1f1f;
+  opacity: 0.5;
+}
+
+/* -------------------------- MAIN Style  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: Gilroy ☞;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: aliceblue;
+  position: relative;
+}
+
+#batteryIcon:hover,
+#wifi:hover,
+#deviceFn1:hover {
+  scale: 1.09;
+  rotate: 5deg;
+}
+
+main {
+  background-color: #111;
+  height: 650px;
+  /* width: 330px; */
+  min-width: 330px;
+  border-radius: 30px;
+  /* overflow: hidden; */
+  position: relative;
+  color: #fff;
+  box-shadow: 2px 2px 5px 0px #000000b5;
+}
+#notch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.2vh;
+  width: 100%;
+  user-select: none;
+  z-index: 9997;
+  top: 0%;
+  height: 6%;
+  border-radius: 30px 30px 0 0;
+  position: absolute;
+  background-color: #111;
+  border-bottom: 1px solid #3c3c3c03;
+}
+#currentTime {
+  font-size: 1.6vh;
+  padding-right: 3px;
+  font-weight: 200;
+}
+#notchLeft {
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+#notifications {
+  display: flex;
+  align-items: center;
+  font-size: 1.6vh;
+  opacity: 0.9;
+}
+#notchRight {
+  display: flex;
+  width: max-content;
+  justify-content: flex-end;
+  align-items: center;
+}
+#batteryPrcntz {
+  font-size: 1.6vh;
+}
+
+
+
+#barr {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 25px;
+  user-select: none;
+  height: 5%;
+  left: 48.5%;
+  /* background-color: red; */
+  transform: translate(-50%, 20px);
+  z-index: 9997;
+}
+svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#camra {
+  width: 2vh;
+  height: 2vh;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  opacity: 0.05;
+  top: .5%;
+  box-shadow: inset 2px 2px 20px 0px #00000062, 2px 2px 20px 0px #00000062;
+  transform: translate(-50%, 20%);
+  display: flex;
+  align-items: center;
+  user-select: none;
+  justify-content: center;
+  border-radius: 50%;
+  left: 50%;
+  z-index: 9999;
+}
+#camraDot {
+  width: 1.2vh;
+  height: 1.2vh;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.5;
+  border-radius: 50px;
+}
+
+/* black screen  */
+
+#blackScreen {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+  opacity: 0;
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+#blackScreenText {
+  color: white;
+  font-size: 4vh;
+  user-select: none;
+}
+
+
+/* Home Page */
+
+#HomePage {
+  background-color: #111;
+  height: 650px;
+  width: 330px;
+  border-radius: 30px;
+  display: block;
+  opacity: 1;
+  user-select: none;
+overflow: hidden;
+  position: absolute;
+  z-index: 9990;
+  transition: opacity ease 0.3s, display ease 0.3s;
+}
+
+#HomePage {
+  background-image: url(../Img/image_search_1676306944477.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#googleSearch {
+  background-color: transparent;
+  width: 100%;
+  height: 6.2%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 7.7%;
+  transition: top ease 0.3s;
+}
+#googleSearch:hover {
+  top: 7.5%;
+}
+#googleSearchDiv {
+  background-color: #11111167;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  box-shadow: 2px 2px 5px 0px #1e1e1e5f;
+  justify-content: space-around;
+  border-radius: 20px;
+  height: 100%;
+  transition: box-shadow ease 0.2s;
+}
+#googleSearchDiv:hover {
+  box-shadow: 0px 1px 5px 0px #0f948b69;
+}
+#micLens {
+  height: 100%;
+  width: 23%;
+  display: flex;
+  gap: 1px;
+  align-items: center;
+  justify-content: center;
+}
+#googleMic,
+#googleLens {
+  border-radius: 50%;
+  height: 80%;
+  width: 50%;
+  color: white;
+  display: flex;
+  background-color: transparent;
+  align-items: center;
+  justify-content: center;
+}
+
+#googleLogo {
+  border-radius: 50%;
+  height: 130%;
+  width: max-content;
+}
+#googleLogo img {
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: lighten;
+}
+#googleSearchDiv #input {
+  outline: none;
+  width: 50%;
+  background-color: transparent;
+  height: 100%;
+}
+
+#bottomAppSearch {
+  width: 25%;
+  height: 4%;
+  border-radius: 20px;
+  background-color: rgba(128, 128, 128, 0.481);
+  position: relative;
+  top: 76%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: white;
+  font-size: 1.7vh;
+  left: 50%;
+  z-index: 9992;
+  transform: translate(-50%, -50%);
+  transition: border ease-in-out 0.3s, top ease-in-out 0.3s;
+}
+#bottomAppSearch:hover {
+  border-bottom: 1px solid white;
+  top: 75.5%;
+}
+#bottomAppList {
+  display: flex;
+  height: 7%;
+  z-index: 9992;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  top: 78%;
+  padding: 0 10%;
+}
+#AppMSG,
+#AppCall,
+#AppCamara {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 15.7%;
+  border-radius: 17px;
+  height: 85%;
+  transition: scale ease 0.2s;
+}
+#AppMSG {
+  box-shadow: inset 2px 2px 20px 0px #0000003a;
+  background-color: rgb(255, 255, 255);
+  color: blue;
+}
+#AppMSG:active {
+  scale: 0.925;
+}
+#AppCall {
+  background-color: rgb(12, 209, 31);
+  box-shadow: inset 2px 2px 20px 0px #0000003a;
+  color: white;
+}
+#AppCall:active {
+  scale: 0.925;
+}
+#AppCamara {
+  box-shadow: inset 2px 2px 20px 0px #0000003a;
+  background-color: grey;
+  color: white;
+}
+#AppCamara:active {
+  scale: 0.925;
+}
+#AppMSG span {
+  position: absolute;
+  background-color: rgb(255, 59, 59);
+  top: 0;
+  right: 0;
+  box-shadow: inset 2px 2px 5px 0px #0000003b;
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+}
+
+
+#HomePage1 {
+  /* background-color: #111; */
+  height: 650px;
+  width: 330px;
+  border-radius: 30px;
+  overflow: hidden;
+  display: block;
+  opacity: 1;
+  top: 0;
+  user-select: none;
+  position: absolute;
+  z-index: 9991;
+  transition: opacity ease 0.3s, display ease 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 15%;
+  align-items: center;
+}
+
+#HomePage1 {
+  /* background-color: #070705; */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+#HomePage1 #noteBar {
+  width: 90%;
+  height: 10%;
+  background-color: #06757a;
+  position: relative;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  left: 0;
+}
+#HomePage1 #noteBar .icons {
+  width: 15%;
+  height: 75%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d7fdff;
+  background-color: #65aaae;
+  transition: scale ease 0.3s;
+}
+#HomePage1 > #noteBar > .icons:active{
+scale: 0.945;
+}
+#HomePage1 #noteBar #icon1 {
+  background-color: #9efaff;
+}
+
+#HomePage1 #appsColoum {
+  width: 100%;
+  height: 60%;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  top: 3%;
+  /* background-color: #aabbff; */
+}
+
+#appsColoum .coloum {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+
+#appsColoum #coloum1 {
+  width: 25%;
+  /* background-color: #fff; */
+}
+
+#appsColoum #coloum2 {
+  width: 25%;
+  /* background-color: #e40000; */
+}
+
+#appsColoum #coloum3 {
+  width: 50%;
+  /* background-color: #2aa81071; */
+}
+
+#appsColoum .coloum #appp1 {
+  background-color: #00ff4c;
+}
+#appsColoum .coloum #appp2 {
+  background-color: #0000ff;
+}
+#appsColoum .coloum #appp3 {
+  background-color: #8000ff;
+}
+#appsColoum .coloum #appp4 {
+  background-color: #2a2a2a;
+}
+#appsColoum .coloum #appp5 {
+  background-color: #ffffff;
+}
+#appsColoum .coloum #appp6 {
+  background: linear-gradient(145deg, rgb(115, 0, 177) 5%, rgb(255, 0, 230), rgb(255, 0, 0), rgb(238, 255, 0) 90%);
+}
+#appsColoum .coloum #appp7 {
+  background-color: #fff;
+}
+#appsColoum .coloum #appp8 {
+  background-color: #fff;
+}
+#appsColoum .coloum #appp9 {
+  background-color: #fff;
+}
+#appsColoum .coloum #appp10 {
+  background-color: #111111;
+}
+
+.coloum .apps {
+  width: 60%;
+  height: 14%;
+  border-radius: 20px;
+  /* background-color: royalblue; */
+}
+
+#appsColoum #coloum3 #app1 {
+  height: 36%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #df6fdb; */
+}
+#appsColoum #coloum3 #app2 {
+  height: 36%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #d539cf; */
+}
+
+#appsColoum #coloum3 #app1 #calander {
+  width: 85%;
+  height: 90%;
+  padding-right: 2vh;
+  border-radius: 20px;
+  background-color: #4a5255;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.23vh;
+  flex-direction: column;
+}
+#appsColoum #coloum3 #app1 #calander #calanderMoon {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  height: 6vh;
+  width: 6vh;
+  z-index: 8000;
+  border-radius: 50px;
+  background-color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3vh;
+  overflow: hidden;
+}
+#appsColoum #coloum3 #app1 #calanderDetails {
+  position: relative;
+  height: 10%;
+  text-wrap: nowrap;
+  font-size: 1.4vh;
+  text-align: end;
+  color: white;
+  width: 100%;
+}
+#appsColoum #coloum3 #app1 #calanderDay {
+  color: #00bbff;
+  height: 20%;
+  width: 100%;
+  font-size: 3vh;
+  text-align: end;
+}
+
+#appsColoum #coloum3 #app2 #appSong {
+  width: 85%;
+  height: 90%;
+  background-color: #4a5255;
+  border-radius: 20px;
+}
+#appsColoum #coloum3 #app2 #appSong img{
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#coloum3 #app3 {
+  height: 15%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  /* background-color: #bc00b5; */
+}
+
+#appsColoum #coloum3 #app3 .apppp {
+  width: 30%;
+  border-radius: 18px;
+  height: 90%;
+}
+
+#appsColoum #coloum3 #app3 #apppp1 {
+  background-color: rgb(255, 255, 255);
+}
+#appsColoum #coloum3 #app3 #apppp2 {
+  background-color: rgb(95, 94, 110);
+}
+
+#googlePageShow{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:linear-gradient(45deg, #141414dd, #0f0f0fdd);
+  top: 5%;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: none;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 9994;
+}
+
+#googlePageShow > #googleSearchDiv1{
+  width: 90%;
+  height: 7%;
+  border-bottom: 1px solid #b7b7b778;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 1%;
+  left: 50%;
+    transform: translate(-50%, 0);
+  padding-bottom: 10px;
+  background-color: #ffffff00;
+}
+#googlePageShow > #googleSearchDiv1 > #backGo{
+  width: 10%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  left: -5px;
+  font-size: 3.2vh;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  transition: left 0.2s ease, color 0.2s ease;
+}
+#googlePageShow > #googleSearchDiv1 > #backGo:hover{
+  color: #e4e4e4;
+  left: -7px;
+}
+#googlePageShow > #googleSearchDiv1 > #googleLogo{
+  width: 10%;
+  height: 100%;
+  display: flex;
+  font-size: 3.2vh;
+  align-items: center;
+  justify-content: center;
+}
+#googlePageShow > #googleSearchDiv1 > input{
+  height: 60%;
+  width: 60%;
+  background-color: transparent;
+  padding: 0 10px;
+  color: whitesmoke;
+  outline: none;
+}
+#googlePageShow > #googleSearchDiv1 > #micLens{
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+#googlePageShow > #showRecent{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: .4vw 1vw;
+  position: relative;
+  align-items: center;
+  height: 70%;
+  top: 2%;
+  flex-direction: column;
+  opacity: 1;
+  pointer-events: auto;
+}
+#googlePageShow > #showRecent > #recent{
+  width: 100%;
+  height: 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: whitesmoke;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+#googlePageShow > #showRecent > #recent:hover{
+  outline: 1px solid #b7b7b778;
+}
+#googlePageShow > #showRecent > #recent > h5{
+  width: 85%;
+  display: flex;
+  align-items: center;
+  font-weight: 200;
+  justify-content: flex-start;
+}
+
+#googlePageShow > #searchBox{
+  width: 100%;
+  opacity: 0;
+  /* background-color: #fff; */
+  pointer-events: none;
+  display: flex;
+  justify-content: space-evenly;
+  padding: .4vw 1vw;
+  position: absolute;
+  align-items: center;
+  height: 86%;
+  top: 9%;
+  flex-direction: column;
+}
+
+/* Camara App */
+
+
+#camaraApp {
+  background-color: #111;
+  height: 650px;
+  width: 330px;
+  border-radius: 30px;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  align-items: center;
+  /* justify-content: center; */
+  user-select: none;
+  position: absolute;
+  z-index: 100;
+  transition: opacity ease 0.3s, display ease 0.3s;
+  padding-top: 40px;
+}
+#topHeaderTools {
+  width: 100%;
+  /* background-color: red; */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.HeaderTools {
+  color: #fff;
+  cursor: pointer;
+}
+#camaraDisplay {
+  width: 98%;
+  height: 370px;
+  /* background-color: green; */
+  position: relative;
+  overflow: hidden;
+}
+#camaraDisplay video {
+  width: 100%;
+  background: #000;
+  border: 2px solid #111;
+  object-position: center;
+  object-fit: cover;
+  height: 100%;
+  transform: scaleX(-1);
+}
+#flashOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+/* #flashCircleOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 41vh;
+  height: 41vh;
+  border-radius: 50%;
+  background: white;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 10;
+} */
+
+#inCamaraTools {
+  /* background-color: aqua; */
+  width: 100%;
+  height: 45px;
+  bottom: 5px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4vh;
+}
+.CamaraTools {
+  color: white;
+  border-radius: 50px;
+  padding: 1vh 1.2vh;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.214);
+  border: 2px solid rgba(255, 255, 255, 0.454);
+  backdrop-filter: blur(10px);
+}
+.level {
+  background-color: rgba(0, 0, 0, 0.222);
+  border: 2px solid rgba(255, 255, 255, 0.454);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  padding: 1vh 1.5vh;
+  color: white;
+}
+#zoomLevels {
+  cursor: pointer;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: space-around;
+  gap: 7.5px;
+}
+#mainBottomModes {
+  /* background-color: blue; */
+  width: 100%;
+  height: 50px;
+  display: flex;
+  cursor: pointer;
+  color: white;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.8vh;
+}
+#mainBottomTools {
+  /* background-color: rgb(214, 24, 192); */
+  width: 100%;
+  height: 60px;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: space-around;
+}
+.bottomTools {
+  width: 6vh;
+  height: 6vh;
+  border-radius: 50px;
+  /* background-color: yellow; */
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.473);
+  backdrop-filter: blur(10px);
+}
+#recentPhotos img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+#camaraTrigger {
+  width: 7.2vh;
+  height: 7vh;
+  border: 5px solid white;
+}
+#camaraChange {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* for call app  */
+
+#forCallApp{
+  position: absolute;
+  background-color: #111;
+  width: 100%;
+  /* opacity: 0.5 ; */
+  border-radius: 0 0 30px 30px;
+  height: 94%;
+  z-index: 150;
+  top: 6.1%;
+  overflow: hidden;
+}
+
+/* call main ------- */
+
+#mainContent {
+  /* overflow: hidden; */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 94%;
+}
+header {
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.164);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2px 7px 2px 17px;
+  height: auto;
+}
+#buttons {
+  text-align: right;
+}
+header #title {
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  font-weight: 400;
+}
+header #buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+#content {
+  display: flex;
+  flex-direction: column;
+  height: 78%;
+  width: 100%;
+  position: relative;
+  padding-top: 0.8vw;
+  gap: 10px;
+  flex-wrap: nowrap;
+  overflow-y: auto;
+}
+
+
+#contect {
+  width: 100%;
+  position: relative;
+  height: 10%;
+  padding-bottom: 5px;
+  /* overflow: hidden; */
+  display: flex;
+  align-items: center;
+  transition: background-color ease 0.4s;
+}
+#contect:hover {
+background-color: #181818;
+}
+
+#totalContact {
+  font-size: 1.7vh;
+}
+
+#contectLogo {
+  padding: 5px;
+}
+
+#contectLogo img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  padding: 0.9vw;
+  border-radius: 50%;
+  display: block;
+}
+
+#contectName {
+  position: absolute;
+  padding-left: 20%;
+}
+#contectNo {
+  position: absolute;
+  padding-left: 70%;
+}
+#contectCC {
+  position: absolute;
+  padding-left: 61.5%;
+}
+#bottomLine {
+  width: 73%;
+  height: 0.5%;
+  background-color: #ffffff17;
+  position: absolute;
+  top: 99%;
+  left: 90%;
+  z-index: 160;
+  transform: translate(-100%, -50%);
+}
+#calll,
+#conttt {
+  font-size: 0.7vw;
+}
+
+#addContect {
+  width: 45px;
+  height: 45px;
+  background-color: #0f948b;
+  position: absolute;
+  opacity: 0.9;
+  display: flex;
+  font-size: 2vw;
+  bottom: 11%;
+  right: 5%;
+  font-weight: 100;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 7px 0px #ffffff78;
+  border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow ease 0.2s, background-color ease 0.3s;
+}
+#addContect:hover {
+  transform: rotate(-45deg);
+  background-color: #038980;
+  box-shadow: 0px 2px 7px 0px #ffffff78;
+}
+#addContect:active {
+  transform: rotate(-135deg);
+}
+
+footer {
+  position: absolute;
+  z-index: 1200;
+  top: 96.3%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #222;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.41);
+  height: 10%;
+  justify-content: space-around;
+  padding-bottom: 7px;
+  font-size: 2.1vh;
+  border-radius: 0 0 30px 30px;
+}
+#Headerstar:hover {
+  transform: rotate(90deg);
+}
+#searchh:hover {
+  transform: rotate(-10deg);
+}
+
+
+
+#callBar {
+  height: 40%;
+  width: 100%;
+  opacity: 1;
+  background-color: #1111116d;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  /* border-top: 1px solid rgba(255, 255, 255, 0.202); */
+  bottom: 8.9994%;
+  backdrop-filter: blur(10px);
+  /* box-shadow: 0px -2px 10px 5px #0a0a0a; */
+  z-index: 175;
+}
+#callBarScreen {
+  height: 6%;
+  width: 100%;
+  opacity: 0;
+  background-color: #1111116d;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 3px;
+  align-items: center;
+  position: absolute;
+  border-top: 1px solid rgba(255, 255, 255, 0.202);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.042);
+  bottom: 49%;
+  padding: 0 2rem;
+  font-size: 1.7rem;
+  backdrop-filter: blur(10px);
+  z-index: 175;
+}
+.dialBtnGroup {
+  font-size: 1.2vw;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.dialBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.dialBtn h5 {
+  font-size: 0.5vw;
+}
+
+#searchhh {
+  position: absolute;
+  top: 6.7%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  left: 5%;
+  opacity: 0;
+  display: none;
+  cursor: none;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.534);
+  border-radius: 7px;
+  padding: 0.7vw 1vw;
+  color: #fff;
+  width: 70%;
+  height: 3%;
+}
+
+#searchhh:focus {
+  outline: none;
+  border: none;
+}
+.groupBtns h3 {
+  font-weight: 200;
+  cursor: pointer;
+}
+
+
+#addContactPage {
+  user-select: none;
+  -moz-user-select: none;
+  background-color: #111;
+  height: 650px;
+  width: 330px;
+  border-radius: 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: -40px;
+  opacity: 0;
+  display: none;
+  pointer-events: none;
+  overflow: hidden;
+  position: absolute;
+  z-index: 185;
+}
+
+#addContactPage #topHeader {
+  width: 100%;
+  padding: 2% 5%;
+  height: max-content;
+  position: absolute;
+  top: 8%;
+  border-bottom: 1px solid #ffffff13;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+#addContactPage #logoAndEmail {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 15%;
+  align-items: center;
+  justify-content: center;
+}
+#addContactPage #logoAndEmail #logo img {
+  object-position: center;
+  object-fit: cover;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50px;
+}
+#addContactPage #details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  position: absolute;
+  top: 33%;
+  height: max-content;
+}
+#addContactPage #details .details {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 0 5% 0 12.5%;
+  overflow: hidden;
+  justify-content: center;
+  /* gap: 10px;  */
+  flex-direction: column;
+  background-color: rgb(51, 51, 51);
+}
+#basicDetails input,
+#advanceDetails input,
+#numberDetails input,
+#emailDetails input {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  color: white;
+}
+.details input:focus {
+  outline: none;
+}
+
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#addContactClose {
+  width: 45px;
+  height: 45px;
+  background-color: #0f948b;
+  position: absolute;
+  opacity: 0.9;
+  display: flex;
+  font-size: 4.5vh;
+  color: white;
+  bottom: 10.5%;
+  right: 5%;
+  box-shadow: 2px 2px 7px 0px #0f948bad;
+  font-weight: 100;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+#addContactClose:hover {
+  transform: rotate(45deg);
+}
+
+
+
+/* Calculator App  */
+
+#calculatorApp {
+  background-color: #111;
+  height: 650px;
+  width: 330px;
+  border-radius: 30px;
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  user-select: none;
+  position: absolute;
+  transition: opacity ease 0.3s, display ease 0.3s;
+  padding-top: 40px;
+  opacity: 1  ;
+  z-index: 200;
+}
+.displayCalculatorDiv{
+    margin: 80px 10px 30px 10px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  border-radius: 50px;
+  border: none;
+  height: 6rem;
+  color: rgb(0, 0, 0);
+  width: 90%;
+  max-width: 100%;
+  padding: 0 5px 0 20px;
+  /* border: 1px solid #ffffff ; */
+  /* background:linear-gradient(to right, #ff0000 95%, rgb(255, 255, 255)) ; */
+}
+#displayCalculatorInputs{
+width: 100%;
+height: 55%;
+  color: #fff;
+padding: 0px 20px;
+text-wrap: nowrap;
+border-radius: 40px 0 0 0 ;
+overflow: hidden;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+  font-size: 1.7em;
+  overflow: hidden;
+letter-spacing: 2px;
+}
+#displayCalculatorResult{
+width: 100%;
+height: 35%;
+padding: 0px 20px;
+  font-size: 1.3em;
+justify-content: flex-end;
+  display: flex;
+align-items: center;
+  color: #fff;
+letter-spacing: 2px; 
+overflow: hidden; 
+}
+.btnsCalculator {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  margin: 0px 25px;
+  position: relative;
+}
+button {
+  margin: 2.5px;
+  height: 2.5rem;
+  width: 3.5rem;
+  border: none;
+  border-radius: 20px;
+  font-size: medium;
+  font-weight: 600;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  cursor: pointer;
+  color: #fff;
+  background-color: #283a4b;
+  transition: box-shadow 0.3s ease;
+}
+button:active {
+  scale: 0.98;
+}
+
+button:hover {
+  box-shadow: inset 2px 2px 10px #0000002e;
+}
+ button#equal {
+  background-color: #ffffff;
+  color: #111;
+}
+/*
+button#percent {
+  background-color: #283a4b;
+}
+
+button#back {
+  background-color: #283a4b;
+}
+button#equal {
+  background-color: #283a4b;
+  color: #fff;
+}
+
+button #percent {
+  background-color: #283a4b;
+} */
+
+button:not(#clear):not(#equal):not(#percent):not(#back):not(#divide):not(#multiply):not(#subtract):not(#add):not(#Half):not(#Square):not(#Cube) {
+  background-color: #222;
+  color: #fff;
+}
+
+
+/* toDoApp */
+
+/* Same style class used for all apps */
+#todoApp {
+  background-color: #111;
+  height: 650px;
+  width: 330px;
+  border-radius: 30px;
+  position: absolute;
+  padding: 60px 20px 20px 20px;
+  box-sizing: border-box;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: opacity 0.4s ease;
+  opacity: 1;
+  z-index: 650;
+  user-select: none;
+}
+
+#todoApp.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 9995;
+}
+
+.todoHeader {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.todoInputSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#todoInput {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  background-color: #222;
+  color: white;
+  margin-right: 10px;
+}
+
+#addTodoBtn {
+  background-color: #08c97f;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#todoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+#todoList li {
+  background-color: #1a1a1a;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#todoList li span {
+  flex: 1;
+  word-break: break-word;
+}
+
+#todoList li button {
+  background-color: transparent;
+  border: none;
+  color: #ff6b6b;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
+/* Instagram App  */
+
+#instagramApp {
+  background-color: #111;
+  height: 650px;
+  width: 330px;
+  border-radius: 30px;
+  position: absolute;
+  padding: 55px 15px 15px 15px;
+  color: white;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.instaHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+.instaIcons i {
+  margin-left: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.instaStorySection {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+.storyBubble {
+  user-select: none;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.instaFeed {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.post {
+  margin-bottom: 20px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.postHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 8px;
+  user-select: none;
+}
+
+.postImage {
+  background-color: #444;
+  height: auto;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  user-select: none;
+}
+.postImage img{
+  width: 100%;
+  object-position: center;
+  object-fit:cover;
+}
+
+.postActions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+.liked {
+  color: red;
+}
+
+.postCaption {
+  font-size: 13px;
+}
+
+
+/* YoutubeApp  */
+
+#youtubeApp {
+  background-color: #111;
+  height: 650px;
+  width: 330px;
+  border-radius: 30px;
+  position: absolute;
+  padding: 55px 15px 15px 15px;
+  color: white;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.ytHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  user-select: none;
+  margin-bottom: 15px;
+}
+
+.ytIcons i {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.ytFeed {
+  flex: 1;  
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ytVideoCard {
+  display: flex;
+  gap: 10px;
+  background-color: #1a1a1a;
+  padding: 10px;
+  border-radius: 10px;
+  align-items: flex-start;
+}
+
+.ytThumbnail {
+  width: 100px;
+  height: 60px;
+  background-color: #444;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  user-select: none;
+}
+
+.ytVideoInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ytTitle {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.ytMeta {
+  font-size: 12px;
+  color: #ccc;
+  user-select: none;
+}
