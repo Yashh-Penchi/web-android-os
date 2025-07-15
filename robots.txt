@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yashh-penchi.github.io/web-android-os/sitemap.xml
