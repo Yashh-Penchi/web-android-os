@@ -11,6 +11,73 @@
 </head>
 
 <body>
+<div class="popupMsg">
+  <h2>🎉 Coming Soon!</h2>
+</div>
+
+<style>
+  
+  .popupMsg {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px 80px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    border: 2px solid transparent;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .popupMsg::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    border-radius: inherit;
+    background: linear-gradient(270deg, #ff00cc, #00ffee, #007bff, #ffcc00, #ff00cc);
+    background-size: 600% 600%;
+    animation: borderAnim 12s ease infinite;
+  }
+
+  @keyframes borderAnim {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .popupMsg h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  }
+  @media (max-width: 600px) {
+    .popupMsg {
+      padding: 10px 30px;
+      font-size: 1.2rem;
+    }
+    .popupMsg h2 {
+      font-size: 1.5rem;
+      text-wrap-mode: nowrap;
+    }
+    
+  }
+</style>
+
   <main>
     <div id="barr">
       <svg width="40%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -130,11 +197,11 @@
 
       <div id="bottomAppSearch">Home</div>
       <div id="bottomAppList">
-        <div id="AppMSG"><i class="ri-chat-1-fill"></i> <span></span></div>
+        <div id="AppMSG" onclick="showPopup()"><i class="ri-chat-1-fill"></i> <span></span></div>
         <div id="AppCall"><i class="ri-phone-fill"></i></div>
         <div id="AppCamara"><i class="ri-camera-fill"></i></div>
       </div>
-      <div id="googlePageShow">
+      <div id="googlePageShow"> 
         <div id="googleSearchDiv1">
           <div id="backGo"><i class="ri-arrow-left-line"></i></i></div>
           <div id="googleLogo"><i class="ri-google-fill"></i></div>
@@ -206,7 +273,7 @@
               align-items: center;
               justify-content: center; font-size: 3vh; "><i class="ri-whatsapp-fill"></i></div>
             <div id="appp2" class="apps explorePage"><i class="ri-id-card-fill"></i></i></div>
-            <div id="appp3" class="apps">पे</div>
+            <div id="appp3" class="apps" onclick="showPopup()">पे</div>
             <div id="appp4" class="apps spotifyApp" style="color: #1ED760; display: flex;
               align-items: center;
               justify-content: center; font-size: 3.5vh; background-color: #111;"><i class="ri-spotify-fill"></i></i></div>
@@ -230,13 +297,13 @@
             <div id="appp9" class="apps AppGoogleMap" style="color: #222; display: flex;
               align-items: center;
               justify-content: center; font-size: 3vh;"><i class="ri-map-pin-2-fill"></i></div>
-            <div id="appp10" class="apps AppSettings" style="color: #ffffff; display: flex;
+            <div id="appp10" class="apps AppSettings" onclick="showPopup()" style="color: #ffffff; display: flex;
               align-items: center;
               justify-content: center; font-size: 3vh;"><i class="ri-settings-5-fill"></i></div>
           </div>
 
           <div id="coloum3" class="coloum">
-            <div id="app1" class="appsss">
+            <div id="app1" class="appsss" onclick="showPopup()">
               <div id="calander">
                 <div id="calanderMoon">🌗</div>
                 <div id="calanderDay">21</div>
@@ -254,7 +321,7 @@
               </div>
             </div>
             <div id="app3" class="appsss">
-              <div id="apppp1" class="apppp AppGames" style="color: #222; display: flex;
+              <div id="apppp1" class="apppp AppGames" onclick="showPopup()" style="color: #222; display: flex;
               align-items: center;
               justify-content: center; font-size: 3vh;"><i class="ri-gamepad-fill"></i></div>
               <div id="apppp2" class="apppp" style="display: flex;
@@ -963,7 +1030,7 @@ background-color: #000;
         <h3>Yashh Lodha !!...</h3>
         <p>
           <b>Hey! I'm Yashh Lodha, CSE'27 👋🏻</b><br />
-          Java Full-Stack Explorer, Frontend Developer & Designer from Indore. Currently pursuing BTech in CSE at SVCE. I enjoy crafting smooth, creative, and fast web experiences using HTML, CSS, JS & Java.
+          Java Full-Stack Explorer, Frontend Developer & Designer and Photographer from Indore. Currently pursuing BTech in CSE at SVCE. I enjoy crafting smooth, creative, and fast web experiences using HTML, CSS, JS & Java.
         </p>
 
         <div id="socialIcons">
@@ -1030,6 +1097,34 @@ background-color: #000;
   <script type="module" src="./JS/spotify.js"></script>
   <script type="module" src="./JS/noteApp.js"></script>
   <script type="module" src="./JS/home.js"></script>
+  <script>
+    const popupMsg = document.querySelector(".popupMsg");
+
+function showPopup() {
+  gsap.to(popupMsg, {
+    duration: 1.3,
+    opacity: 1,
+    y: 0,
+    ease: "bounce.in",
+  });
+}
+
+function hidePopup() {
+  gsap.to(popupMsg, {
+    duration: 1,
+    opacity: 0,
+    y: -50,
+    ease: "bounce.out",
+  });
+}
+
+window.addEventListener("click", (e) => {
+    if (!popupMsg.contains(e.target)) {
+      hidePopup();
+    }
+  });
+
+  </script>
   <script src="./JS/script.js"></script>
 
 
