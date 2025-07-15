@@ -95,7 +95,7 @@
 
           inactivityTimeout = setTimeout(() => {
             showBlackScreen();
-          }, 10000); // 10 seconds
+          }, 15000); // 15 seconds
         }
 
         // User activity events (touch/mouse/keyboard)
@@ -125,6 +125,9 @@
           </div>
         </div>
       </div>
+
+      <i class="ri-arrow-left-line animate-bounce-arrow"></i>
+
       <div id="bottomAppSearch">Home</div>
       <div id="bottomAppList">
         <div id="AppMSG"><i class="ri-chat-1-fill"></i> <span></span></div>
@@ -203,16 +206,16 @@
 
         <div id="appsColoum">
           <div id="coloum1" class="coloum">
-            <div id="appp1" class="apps" style="color: #ffffff; display: flex;
+            <div id="appp1" class="apps whatsappHomeApp" style="color: #ffffff; display: flex;
               align-items: center;
-              justify-content: center; font-size: 3vh;"><i class="ri-whatsapp-fill"></i></div>
+              justify-content: center; font-size: 3vh; "><i class="ri-whatsapp-fill"></i></div>
             <div id="appp2" class="apps" style="color: #ffffff; background-color: rgb(0, 149, 255); display: flex;
               align-items: center;
               justify-content: center; font-size: 3vh;"><i class="ri-paypal-fill"></i></div>
-            <div id="appp3" class="apps"></div>
-            <div id="appp4" class="apps AppMusic" style="color: #ffffff; display: flex;
+            <div id="appp3" class="apps">पे</div>
+            <div id="appp4" class="apps spotifyApp" style="color: #1ED760; display: flex;
               align-items: center;
-              justify-content: center; font-size: 3vh;"><i class="ri-disc-fill"></i></div>
+              justify-content: center; font-size: 3.5vh; background-color: #111;"><i class="ri-spotify-fill"></i></i></div>
             <div id="appp5" class="apps AppCalculator" style="color: #222; display: flex;
               align-items: center;
               justify-content: center; font-size: 3vh;"><i class="ri-calculator-line"></i></div>
@@ -252,15 +255,17 @@
               </div>
             </div>
             <div id="app2" class="appsss">
-              <div id="appSong">
-                <img src="./Img/music1.png">
+              <div class="spotifyApp1" id="appSong">
+                <img src="./Img/music.png">
               </div>
             </div>
             <div id="app3" class="appsss">
               <div id="apppp1" class="apppp AppGames" style="color: #222; display: flex;
               align-items: center;
               justify-content: center; font-size: 3vh;"><i class="ri-gamepad-fill"></i></div>
-              <div id="apppp2" class="apppp"></div>
+              <div id="apppp2" class="apppp" style="display: flex;
+              align-items: center;
+              justify-content: center; font-size: 3vh;" onclick="setTimeout(() => { showBlackScreen(); }, 100);"><i class="ri-phone-lock-fill"></i></div>
             </div>
           </div>
         </div>
@@ -617,6 +622,157 @@
 </div>
 
 
+<!-- WhatsApp Clone Home -->
+<div id="whatsappHomeApp">
+  <div class="waHeader">
+    <span class="waTitle">WhatsApp</span>
+    <div class="waIcons">
+      <i class="ri-camera-line"></i>
+      <i class="ri-search-line"></i>
+      <i class="ri-more-2-fill"></i>
+    </div>
+  </div>
+
+  <div class="waSearch">
+      <i class="ri-search-line"></i>
+    <input type="text" placeholder="Ask Meta Al or Search" />
+  </div>
+
+  <div class="waTabs">
+    <button class="waTab active">Chats</button>
+    <button class="waTab">Updates</button>
+    <button class="waTab">Communities</button>
+    <button class="waTab">Calls</button>
+  </div>
+
+  <ul class="waChatList">
+    <li class="waChatItem">
+      <div class="waAvatar">👤</div>
+      <div class="waChatInfo">
+        <div class="waChatTop">
+          <span class="waName">Yashh Lodha <span style="color: rgba(197, 197, 197, 0.644);">(self)</span></span>
+          <span class="waTime">4:20 PM</span>
+        </div>
+        <div class="waMessage">Saved a Document!</div>
+      </div>
+    </li>
+    <!-- More dummy chats... filled by JS -->
+  </ul>
+
+  <button class="waFAB">💬</button>
+</div>
+
+
+<!-- Music Player App Spotify -->
+ 
+<div id="spotifyApp">
+<footer>
+  <div id="musicFooterIcon1" class="musicFooterIcons"><i class="ri-home-5-fill"></i> <span>Home</span></div>
+  <div id="musicFooterIcon2" class="musicFooterIcons"><i class="ri-search-line"></i> <span>Search</span></div>
+  <div id="musicFooterIcon3" class="musicFooterIcons"><i class="ri-book-shelf-fill"></i> <span>Your Library</span></div>
+  <div id="musicFooterIcon4" class="musicFooterIcons"><i class="ri-spotify-fill"></i> <span>Premium</span></div>
+  <div id="musicFooterIcon5" class="musicFooterIcons"><i class="ri-add-large-line"></i> <span>Create</span></div>
+</footer>
+<div id="musicStrip">
+  <div id="img"><img src="./Img/My chdd song ♥️✨.jpg"></div>
+  <div id="dtls">
+    <h4>Iktara - Male Version</h4>
+    <h5>Amit Trivedi, Tochi Raina, Amitabh Bhattachan</h5>
+  </div>
+  <div class="icons" id="iconPC"><i class="ri-macbook-line"></i></div>
+  <div class="icons" id="iconPlay"><i class="ri-play-large-fill"></i></div>
+  <div class="icons" id="iconNext"><i class="ri-skip-right-fill"></i></div>
+</div>
+  
+<div id="allContent">
+  <div class="musicInfo">
+    <div class="musicCover"><img src="./Img/My chdd song ♥️✨.jpg"><i style="font-style: normal;">🎵</i></div>
+    <h3 class="musicTitle" onclick="window.open('https://open.spotify.com/playlist/4ex1jz2rUGyml18DekEghA?si=800daa35a6444df5')">My chdd song ♥️✨</h3>
+    <div id="musicDtls">
+  <p class="description" id="descText">
+    My Chdd Song ♥️❣️ – Yeh playlist un lamhon ke liye jab dil bhari ho, yaadein satayein aur sirf music hi apna lage. Deep, heartful aur introverted souls ke liye, jo pyaar, dard aur tanhaayi ko mehsoos karna pasand karte hain. 🎶💖 Let the music heal, hurt, and hug your soul. ✨🎧💜
+  </p>
+  <button id="toggleBtn">Show more</button>
+  
+  <script>
+    const descText = document.getElementById("descText");
+const toggleBtn = document.getElementById("toggleBtn");
+let expanded = false;
+
+toggleBtn.addEventListener("click", () => {
+  expanded = !expanded;
+
+  if (expanded) {
+    descText.style.webkitLineClamp = "unset";
+    descText.style.overflow = "visible";
+    toggleBtn.textContent = "Show less";
+  } else {
+    descText.style.webkitLineClamp = "2";
+    descText.style.overflow = "hidden";
+    toggleBtn.textContent = "Show more";
+  }
+});
+
+  </script>
+</div>
+<div id="creator" onclick="window.open('https://open.spotify.com/user/31nchylcdn6x5tudben62s35z5wq?si=d1c6ef25350d4640')">
+  <div id="img"><img src="./Img/Picsart_24-08-10_00-04-37-814.jpg"></div> <h5>Yashh Penchi</h5>
+</div>
+<div id="timeOfLong" style="display: flex;
+align-items: center;
+  user-select: none;
+justify-content: flex-start; gap: 5px; letter-spacing: 0.2px; margin: 4% 0 3% 0; font-size: 1.8vh; ">
+  <i class="ri-timer-2-line"></i><h5 style=" font-weight: 100;">3h 8min</h5>
+</div>
+  </div>
+
+<div id="musicStripsArea">
+  <!-- // Music strips will be dynamically added here by JS -->
+</div>
+
+<!-- -----------------  -->
+<div id="spaceArea">
+</div>
+<!-- ----------------------  -->
+
+</div>
+</div>
+
+
+
+<!-- Map App -->
+
+<div id="mapApp">
+  <div class="mapHeader">📍 Indore Live Map</div>
+  <iframe
+  id="indoreMap"
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.439601271246!2d75.85772587435108!3d22.597218579477665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fdc253b5a681%3A0xf99d96bfe5d9f7db!2sIndore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1721040734324!5m2!1sen!2sin"
+  width="100%"
+  height="100%"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+</div>
+
+
+<!-- Notes App -->
+<div id="notesApp">
+  <div class="notesHeader">
+    <h2>🗒️ My Notes</h2>
+  </div>
+  <textarea id="notesInput" placeholder="Write your thoughts here..."></textarea>
+  <button id="saveNoteBtn">Save Note</button>
+  <ul id="notesList"></ul>
+</div>
+
+
+
+
+
+
   </main>
 
 
@@ -650,6 +806,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
     integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script type="module" src="./JS/contact.js"></script>
   <script type="module" src="./JS/contactData.js"></script>
@@ -657,6 +814,9 @@
   <script type="module" src="./JS/calculator.js"></script>
   <script type="module" src="./JS/toDoApp.js"></script>
   <script type="module" src="./JS/youtubeApp.js"></script>
+  <script type="module" src="./JS/whatsappHome.js"></script>
+  <script type="module" src="./JS/spotify.js"></script>
+  <script type="module" src="./JS/noteApp.js"></script>
   <script type="module" src="./JS/home.js"></script>
   <script src="./JS/script.js"></script>
 

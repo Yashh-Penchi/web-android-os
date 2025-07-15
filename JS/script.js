@@ -304,18 +304,6 @@ notesAppIcon.addEventListener("click", () => {
 });
 homeBarr.addEventListener("click", () => {
   document.getElementById("notesApp").style.zIndex = "250";
-
-
-// for music app open close
-
-let musicAppIcon = document.querySelector(".AppMusic");
-
-musicAppIcon.addEventListener("click", () => {
-  document.getElementById("musicApp").style.zIndex = "9995";
-});
-homeBarr.addEventListener("click", () => {
-  document.getElementById("musicApp").style.zIndex = "350";
-});
 } );
 
 
@@ -334,10 +322,10 @@ homeBarr.addEventListener("click", () => {
 let googleMapAppIcon = document.querySelector(".AppGoogleMap");
 
 googleMapAppIcon.addEventListener("click", () => {
-  document.getElementById("googleMapApp").style.zIndex = "9995";
+  document.getElementById("mapApp").style.zIndex = "9995";
 });
 homeBarr.addEventListener("click", () => {
-  document.getElementById("googleMapApp").style.zIndex = "450";
+  document.getElementById("mapApp").style.zIndex = "450";
 });
 
 
@@ -382,6 +370,35 @@ instagram.addEventListener("click", () => {
 });
 homeBarr.addEventListener("click", () => {
   document.getElementById("instagramApp").style.zIndex = "650";
+});
+
+
+
+// for whatsapp app open close
+let whatsapp = document.querySelector(".whatsappHomeApp");
+
+whatsapp.addEventListener("click", () => {
+  document.getElementById("whatsappHomeApp").style.zIndex = "9995";
+});
+homeBarr.addEventListener("click", () => {
+  document.getElementById("whatsappHomeApp").style.zIndex = "700";
+});
+
+
+
+// for spotifyApp open close
+
+let spotifyApp = document.querySelector(".spotifyApp");
+let spotifyApp1 = document.querySelector(".spotifyApp1");
+
+spotifyApp.addEventListener("click", () => {
+  document.getElementById("spotifyApp").style.zIndex = "9995";
+});
+spotifyApp1.addEventListener("click", () => {
+  document.getElementById("spotifyApp").style.zIndex = "9995";
+});
+homeBarr.addEventListener("click", () => {
+  document.getElementById("spotifyApp").style.zIndex = "850";
 });
 
 

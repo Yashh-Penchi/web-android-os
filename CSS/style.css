@@ -1,7 +1,7 @@
 /*----------------------- Scrollbar --------------------------------*/
 ::-webkit-scrollbar {
-  width: 3px;
-  height: 3px;
+  width: 0px;
+  height: 0px;
 }
 /* Track */
 ::-webkit-scrollbar-track {
@@ -9,12 +9,12 @@
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #3b3b3b;
+  background: transparent;
   border: none;
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #1f1f1f;
+  background: transparent;
   opacity: 0.5;
 }
 
@@ -55,10 +55,9 @@ main {
   /* width: 330px; */
   min-width: 330px;
   border-radius: 30px;
-  /* overflow: hidden; */
   position: relative;
   color: #fff;
-  box-shadow: 2px 2px 5px 0px #000000b5;
+  /* overflow: hidden; */
 }
 #notch {
   display: flex;
@@ -72,7 +71,7 @@ main {
   height: 6%;
   border-radius: 30px 30px 0 0;
   position: absolute;
-  background-color: #111;
+  background-color: #11111159;
   border-bottom: 1px solid #3c3c3c03;
 }
 #currentTime {
@@ -109,7 +108,7 @@ main {
   align-items: center;
   justify-content: center;
   position: absolute;
-  bottom: 25px;
+  bottom: 20px;
   user-select: none;
   height: 5%;
   left: 48.5%;
@@ -341,6 +340,28 @@ overflow: hidden;
   border-radius: 50px;
 }
 
+.animate-bounce-arrow {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  font-size: 2.5vh;
+  transform: translateY(-50%);
+  pointer-events: none;
+  user-select: none;
+  animation: leftRightMove 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes leftRightMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+
+
 
 #HomePage1 {
   /* background-color: #111; */
@@ -435,13 +456,18 @@ scale: 0.945;
 }
 
 #appsColoum .coloum #appp1 {
-  background-color: #00ff4c;
+  background-color: #0CC143;
 }
 #appsColoum .coloum #appp2 {
   background-color: #0000ff;
 }
 #appsColoum .coloum #appp3 {
   background-color: #8000ff;
+  font-size: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
 }
 #appsColoum .coloum #appp4 {
   background-color: #2a2a2a;
@@ -537,11 +563,14 @@ scale: 0.945;
 #appsColoum #coloum3 #app2 #appSong {
   width: 85%;
   height: 90%;
-  background-color: #4a5255;
+  background-color: #4CA354;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 20px;
 }
 #appsColoum #coloum3 #app2 #appSong img{
-  width: 100%;
+  height: 110%;
   object-fit: cover;
   object-position: center;
 }
@@ -990,7 +1019,7 @@ background-color: #181818;
   transform: rotate(-135deg);
 }
 
-footer {
+.callMainContent footer {
   position: absolute;
   z-index: 1200;
   top: 96.3%;
@@ -998,11 +1027,11 @@ footer {
   align-items: center;
   width: 100%;
   background-color: #222;
-  border-top: 0.5px solid rgba(255, 255, 255, 0.41);
   height: 10%;
   justify-content: space-around;
   padding-bottom: 7px;
   font-size: 2.1vh;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.41);
   border-radius: 0 0 30px 30px;
 }
 #Headerstar:hover {
@@ -1276,7 +1305,7 @@ overflow: hidden;
   margin: 0px 25px;
   position: relative;
 }
-button {
+.btnsCalculator button {
   margin: 2.5px;
   height: 2.5rem;
   width: 3.5rem;
@@ -1290,14 +1319,14 @@ button {
   background-color: #283a4b;
   transition: box-shadow 0.3s ease;
 }
-button:active {
+.btnsCalculator button:active {
   scale: 0.98;
 }
 
-button:hover {
+.btnsCalculator button:hover {
   box-shadow: inset 2px 2px 10px #0000002e;
 }
- button#equal {
+.btnsCalculator button#equal {
   background-color: #ffffff;
   color: #111;
 }
@@ -1318,7 +1347,7 @@ button #percent {
   background-color: #283a4b;
 } */
 
-button:not(#clear):not(#equal):not(#percent):not(#back):not(#divide):not(#multiply):not(#subtract):not(#add):not(#Half):not(#Square):not(#Cube) {
+.btnsCalculator button:not(#clear):not(#equal):not(#percent):not(#back):not(#divide):not(#multiply):not(#subtract):not(#add):not(#Half):not(#Square):not(#Cube) {
   background-color: #222;
   color: #fff;
 }
@@ -1602,4 +1631,636 @@ button:not(#clear):not(#equal):not(#percent):not(#back):not(#divide):not(#multip
   font-size: 12px;
   color: #ccc;
   user-select: none;
+}
+
+
+#whatsappHomeApp {
+  position: absolute;
+  height: 650px;
+  width: 330px;
+  background-color: #0b1014;
+  color: white;
+  border-radius: 30px;
+  font-family: sans-serif;
+  display: flex;
+  padding: 40px 15px 15px 15px;
+  flex-direction: column;
+  z-index: 700;
+  overflow: hidden;
+}
+
+.waHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+  /* background-color: #202c33; */
+  font-size: 21px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.waTitle {
+  color: #fff;
+}
+
+.waIcons {
+  display: flex;
+  gap: 15px;
+    cursor: pointer;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.waSearch{
+  height: 40px;
+  margin-bottom: 5px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  background-color: #23282c;
+  user-select: none;
+}
+.waSearch input {
+  width: 87%;
+  padding: 5px 10px 5px 10px;
+  height: 100%;
+  background-color: #23282c;
+  border: none;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+.waSearch i{
+  color: #ffffff;
+  width: 13%;
+  position: relative;
+  top: 25%;
+  height: 100%;
+  padding: 0 0 0 7%;
+}
+
+
+.waTabs {
+  display: flex;
+  justify-content: space-evenly;
+align-items: center;
+  user-select: none;
+margin-bottom: 10px;
+position: absolute;
+background-color: #00080e;
+width: 100%;
+left: 50%;
+height: 10%;
+padding: 0 10px;
+transform: translate(-50%);
+bottom: 0%;
+}
+
+.waTab {
+  flex: 1;
+  padding: 10px 8.5px;
+  background: none;
+  color: white;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color ease 0.3s;
+}
+
+.waTab.active {
+  border: 2px solid #006f73;
+  background-color: #006f73;
+}
+
+.waChatList {
+  flex: 1;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.waChatItem {
+  display: flex;
+  gap: 10px;
+  padding: 12px 5px;
+  border-bottom: 1px solid #1f1f1f;
+  cursor: pointer;
+}
+
+.waAvatar {
+  width: 45px;
+  height: 45px;
+  background-color: #333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-size: 20px;
+}
+
+.waChatInfo {
+  flex: 1;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.waChatTop {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.waName {
+  font-size: 16px;
+}
+
+.waTime {
+  font-size: 12px;
+  user-select: none;
+  color: #888;
+}
+
+.waMessage {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.waFAB {
+  position: absolute;
+  bottom: 90px;
+  right: 20px;
+  background-color: #21c063;
+  border: none;
+  border-radius: 17.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  padding: 14px 16px;
+  color: #0b1014;
+  width: 7vh;
+  height: 7vh;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+
+/* Music Player */
+
+#spotifyApp {
+  position: absolute;
+  height: 650px;
+  width: 330px;
+  /* background: linear-gradient(180deg, #970000 0%, #7c2c2c 15%, #0b1014 45%, #0b1014 65%, #0b1014 100%); */
+  color: white;
+  background-color: #111;
+  border-radius: 30px;
+  /* padding: 50px 15px 15px 15px; */
+  z-index: 350;
+  /* z-index: 9996; */
+  overflow: hidden;
+}
+
+#spotifyApp #allContent{
+  background: linear-gradient(180deg, #970000 0%, #7c2c2c 15%, #0b1014 45%, #0b1014 65%, #0b1014 100%);
+  width: 100%;
+  height: 100%;
+  padding: 50px 15px 15px 15px;
+  position: relative;
+  overflow-y: auto;
+  align-items: center;
+  font-family: sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+}
+
+#spotifyApp footer{
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.54);
+  height: 10%;
+  backdrop-filter: blur(1px);
+  position: absolute;
+  top: 90%;
+  left: 0;
+    border-top: 0.5px solid rgba(255, 255, 255, 0.107);
+    display: flex;
+    align-items:flex-start;
+    justify-content: space-between;
+    padding: 3% 10% 0 10%;
+    z-index: 21;
+    border-radius: 0 0 30px 30px;
+}
+/* #musicFooterIcon1{} */
+.musicFooterIcons{
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 2px;
+  user-select: none;
+  cursor: pointer;
+}
+.musicFooterIcons i{
+  font-size: 2.5vh;
+}
+.musicFooterIcons span{
+  font-style: normal;
+  font-size: 1.2vh;
+}
+#musicStrip{
+  /* background: linear-gradient(45deg, rgb(27, 27, 220), #040495); */
+  background: linear-gradient(45deg, rgb(10, 10, 174) 0%, rgb(10, 10, 174) 10%, #2a2ae5 50%, #2a2ae5 70%, #000070 100%);
+   width: 95%;
+   outline: 1px solid #03036a;
+  height: 7.5%;
+  backdrop-filter: blur(1px);
+  position: absolute;
+  border-radius: 5px;
+  top: 82.7%;
+  border-bottom: 1px solid #e1e1e143;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5%;
+  z-index: 20;
+}
+#musicStrip #img{
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
+  border-radius: 5px;
+  user-select: none;
+  position: relative;
+}
+#musicStrip #img img{
+  width: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  object-position: center;
+  position: absolute;
+}
+#musicStrip #dtls{
+  font-size: 1.2vh;
+  width: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 40px;
+  flex-direction: column;
+  padding-left: 5px;
+  cursor: pointer;
+}
+#musicStrip #dtls h4{
+font-size: 1.4vh;
+text-wrap-mode: nowrap;
+padding-bottom: 1px;
+}
+#musicStrip #dtls h5{
+padding-top: 1.1px;
+text-wrap-mode: nowrap;
+font-weight: 200;
+  user-select: none;
+color: #ffffffdc;
+}
+#musicStrip .icons{
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+  /* background-color: green; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#musicStrip #iconPC{
+    width: 45px;
+    font-size: 2.5vh;
+  cursor: pointer;
+    padding :0px 2px 0 20px;
+}
+#musicStrip #iconPlay{ font-size: 2.5vh;
+  cursor: pointer;
+width: 25px;}
+#musicStrip #iconNext{ font-size: 3.5vh;width: 15px;
+  cursor: pointer;
+}
+
+.musicHeader {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 15px;
+  user-select: none;
+  width: 100%;
+}
+
+.musicInfo {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  position: relative;
+  width: 90%;
+  margin-bottom: 7px;
+}
+
+.musicCover {
+  width: 150px;
+  height: 150px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  margin-bottom: 20px;
+  user-select: none;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  overflow: hidden;
+    box-shadow: 2px 2px 10px 0px #000000b5;
+}
+.musicCover img{
+  border-radius: inherit;
+  width: 100%;
+  position: absolute;
+
+}
+
+.musicTitle {
+  font-size: 20px;
+  margin-bottom: 5px;
+  user-select: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+#musicDtls {
+  position: relative;
+}
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 10px;
+  line-height: 1.5;
+  margin-bottom: 0px;
+}
+
+#toggleBtn {
+  background: none;
+  border: none;
+  color: #08c97f;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+  font-size: 8px;
+  text-decoration: underline;
+  user-select: none;
+  padding: 0;
+}
+
+.musicInfo #creator{
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 2.75vh;
+  user-select: none;
+  position: relative;
+  cursor: pointer;
+}
+.musicInfo #creator #img{
+  overflow: hidden;
+  border-radius: 50%;
+  width: 20px;
+  height: 100%;
+  position: relative;
+  margin: 0 2.5% 0 0;
+}
+.musicInfo #creator #img img{
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.musicInfo #creator h5{
+  font-size: 12px;
+}
+
+#musicStripsArea{
+  width: 100%;
+  height: max-content;
+  position: relative;
+  align-items: center;
+  font-family: sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+#musicListStrip{
+  background: linear-gradient(45deg, rgb(44, 44, 44), #5e5e5e);
+   width: 95%;
+   outline: 1px solid #202020;
+  height: 6.5vh;
+  position: relative;
+  border-radius: 5px;
+  border-bottom: 1px solid #e1e1e143;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5%;
+  margin-bottom: 7px;
+  cursor: pointer;
+  z-index: 10;
+}
+#musicListStrip #img{
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+  user-select: none;
+}
+#musicListStrip #img img{
+  width: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  object-position: center;
+  position: absolute;
+}
+#musicListStrip #dtls{
+  font-size: 1.2vh;
+  width: 70%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 40px;
+  flex-direction: column;
+  padding-left: 5px;
+}
+#musicListStrip #dtls h4{
+font-size: 1.6vh;
+font-weight: 300;
+text-wrap-mode: nowrap;
+padding-bottom: 1px;
+}
+#musicListStrip #dtls h5{
+padding-top: 1px;
+text-wrap-mode: nowrap;
+font-size: 1.2vh;
+  user-select: none;
+color: #ffffffdc;
+}
+#musicListStrip .icons{
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+  /* background-color: green; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#musicListStrip #iconPC{
+    width: 25px;
+    font-size: 2.5vh;
+    padding :0px 1px 0 0;
+    cursor: pointer;
+}
+
+#spaceArea{
+  background: transparent;
+   width: 95%;
+  height: 17.5vh;
+  position: relative;
+  padding: 16%;
+  z-index: 10;
+}
+
+
+/* Map App */
+#mapApp {
+  position: absolute;
+  height: 650px;
+  width: 330px;
+  background-color: #0b1014;
+  color: white;
+  border-radius: 30px;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  z-index: 800;
+  overflow: hidden;
+  padding: 45px 15px 35px 15px;
+}
+
+.mapHeader {
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+#indoreMap {
+  flex: 1;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+
+/* Note App */
+
+#notesApp {
+  position: absolute;
+  height: 650px;
+  width: 330px;
+  background-color: #1b1b1b;
+  color: white;
+  border-radius: 30px;
+  padding: 50px 20px 20px 20px;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  z-index: 250;
+  overflow: hidden;
+}
+
+.notesHeader {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#notesInput {
+  height: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #2a2a2a;
+  color: white;
+  resize: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+#saveNoteBtn {
+  background-color: #08c97f;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+#notesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+#notesList li {
+  background-color: #2f2f2f;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  position: relative;
+}
+
+#notesList li button {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #ff5b5b;
+  font-size: 16px;
+  cursor: pointer;
 }
