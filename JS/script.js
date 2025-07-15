@@ -106,17 +106,31 @@ googlePageBack.addEventListener("click", () => {
 
 });
 
-GoogleSearchBtn.addEventListener("click", () => {
-  document.getElementById("showRecent").style.opacity = "0";
-  document.getElementById("showRecent").style.pointerEvents = "none";
-  document.getElementById("searchBox").style.opacity = "1";
-  document.getElementById("searchBox").style.pointerEvents = "auto";
-});
+
 
 document.querySelector("#barr").addEventListener("click", () => {
     document.querySelector("#googlePageShow").style.opacity = "0";
     document.querySelector("#googlePageShow").style.pointerEvents = "none";
 });
+
+ function performSearch() {
+    const query = document.getElementById("searchQuery").value.trim();
+    if (query !== "") {
+      const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+      window.open(searchUrl, "_blank");
+    }
+  }
+
+  document.getElementById("searchQuery").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      performSearch();
+    }
+  });
+
+  document.getElementById("searchBtn").addEventListener("click", function () {
+    performSearch();
+  });
+  
 
 
 
@@ -399,6 +413,20 @@ spotifyApp1.addEventListener("click", () => {
 });
 homeBarr.addEventListener("click", () => {
   document.getElementById("spotifyApp").style.zIndex = "850";
+});
+
+
+
+
+// for explorePage Mini Portfolio open close
+
+let explorePage = document.querySelector(".explorePage");
+
+explorePage.addEventListener("click", () => {
+  document.getElementById("explorePage").style.zIndex = "9995";
+});
+homeBarr.addEventListener("click", () => {
+  document.getElementById("explorePage").style.zIndex = "1050";
 });
 
 

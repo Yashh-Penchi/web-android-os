@@ -457,9 +457,38 @@ scale: 0.945;
 #appsColoum .coloum #appp1 {
   background-color: #0CC143;
 }
+
 #appsColoum .coloum #appp2 {
-  background-color: #0000ff;
-}
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+  border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    font-size: 3vh;
+    background: linear-gradient(-45deg, #ff6ec4, #7873f5, #4ade80, #facc15);
+    background-size: 400% 400%;
+    animation: gradientAnim 8s ease infinite;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  @keyframes gradientAnim {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 #appsColoum .coloum #appp3 {
   background-color: #8000ff;
   font-size: 3vh;
@@ -493,7 +522,7 @@ scale: 0.945;
 .coloum .apps {
   width: 60%;
   height: 14%;
-  border-radius: 20px;
+  border-radius: 15px;
   /* background-color: royalblue; */
 }
 
@@ -2263,3 +2292,5 @@ color: #ffffffdc;
   font-size: 16px;
   cursor: pointer;
 }
+
+

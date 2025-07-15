@@ -145,10 +145,6 @@
             <div style="cursor: pointer;" id="searchBtn"><i class="ri-search-line"></i></div>
           </div>
         </div>
-        <!-- result countainer  -->
-        <div id="searchBox">
-          <div class="gcse-searchresults-only"></div>
-        </div>
         <div id="showRecent">
           <div id="recent">
             <i class="ri-history-line"></i>
@@ -209,9 +205,7 @@
             <div id="appp1" class="apps whatsappHomeApp" style="color: #ffffff; display: flex;
               align-items: center;
               justify-content: center; font-size: 3vh; "><i class="ri-whatsapp-fill"></i></div>
-            <div id="appp2" class="apps" style="color: #ffffff; background-color: rgb(0, 149, 255); display: flex;
-              align-items: center;
-              justify-content: center; font-size: 3vh;"><i class="ri-paypal-fill"></i></div>
+            <div id="appp2" class="apps explorePage"><i class="ri-id-card-fill"></i></i></div>
             <div id="appp3" class="apps">पे</div>
             <div id="appp4" class="apps spotifyApp" style="color: #1ED760; display: flex;
               align-items: center;
@@ -766,6 +760,224 @@ justify-content: flex-start; gap: 5px; letter-spacing: 0.2px; margin: 4% 0 3% 0;
   <textarea id="notesInput" placeholder="Write your thoughts here..."></textarea>
   <button id="saveNoteBtn">Save Note</button>
   <ul id="notesList"></ul>
+</div>
+
+
+<!-- Explore Page Mini Portfolio (Z-Index: 1050) -->
+
+<style>
+  /* CSS */
+#explorePage {
+  z-index: 1050;
+  position: absolute;
+  width: 330px;
+  height: 650px;
+  overflow: hidden;
+  border-radius: 30px;
+background-color: #000;
+}
+
+
+.section2 {
+  padding-top: 7vh;
+  height: 100%;
+  background: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 2;
+  position: relative;
+}
+
+#AboutHead {
+  font-size: 20px;
+  color: white;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  margin-bottom: 4vh;
+  z-index: 3;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 3;
+  position: relative;
+  padding: 0 20px;
+}
+
+#Photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-border {
+  position: relative;
+  padding: 3px;
+  border-radius: 12px;
+  background: linear-gradient(270deg, #ff00cc, #00ffee, #007bff, #ffcc00, #ff00cc);
+  background-size: 600% 600%;
+  animation: borderFlow 8s linear infinite;
+}
+
+.photo-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(8px);
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.photo-border img {
+  position: relative;
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  z-index: 1;
+  background-color: #000;
+}
+  
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+#dtlsContent h3 {
+  color: white;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+#dtlsContent p {
+  color: #ddd;
+  font-size: 13px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px #000000cc;
+  border-left: 2px solid #fff;
+  padding-left: 12px;
+}
+
+#socialIcons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+#socialIcons a {
+  font-size: 13px;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+#socialIcons a:hover {
+  text-shadow: 0px 0px 10px #ffffff9f;
+}
+
+#contactBtn {
+  background-color: #007881;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px #0000007a;
+  transition: 0.3s;
+}
+#contactBtn:hover {
+  background-color: #005459;
+}
+
+</style>
+
+<!-- bg animated  -->
+
+<style>
+  #explore::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(circle at 20% 30%, rgba(0, 255, 200, 0.2), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 200, 0.2), transparent 40%),
+                linear-gradient(135deg, rgba(0, 100, 255, 0.05), rgba(255, 0, 150, 0.05));
+    animation: pulseGradient 20s infinite ease-in-out alternate;
+    background-size: 200% 200%;
+    backdrop-filter: blur(30px);
+    opacity: 0.9;
+    border-radius: 30px;
+  }
+
+  @keyframes pulseGradient {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+
+  #explore * {
+    position: relative;
+    z-index: 3;
+  }
+</style>
+
+
+<!-- html  -->
+ <!-- HTML -->
+<div id="explorePage">
+  <div id="explore" class="section2">
+    <h4 id="AboutHead">About Me</h4>
+
+    <div id="content">
+      <div id="Photo">
+  <div class="photo-border">
+    <img src="./Img/Yashh-05-19_18-24-51-281.jpg" alt="Yashh" />
+  </div>
+</div>
+
+      <div id="dtlsContent">
+        <h3>Yashh Lodha !!...</h3>
+        <p>
+          <b>Hey! I'm Yashh Lodha, CSE'27 👋🏻</b><br />
+          Java Full-Stack Explorer, Frontend Developer & Designer from Indore. Currently pursuing BTech in CSE at SVCE. I enjoy crafting smooth, creative, and fast web experiences using HTML, CSS, JS & Java.
+        </p>
+
+        <div id="socialIcons">
+          <a href="mailto:iyash321@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/yashh-lodha/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/Yashh-Penchi" target="_blank">GitHub</a>
+          <a href="https://instagram.com/21__Yashh" target="_blank">Instagram</a>
+          <a href="https://x.com/21__Yashh" target="_blank">X</a>
+        </div>
+
+        <button id="contactBtn" onclick="window.open('https://wa.me/919752947671', '_blank');">Contact Me</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 
