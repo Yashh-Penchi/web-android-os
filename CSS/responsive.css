@@ -27,6 +27,16 @@
     #calll, #conttt, footer{
       font-size: 1.6vh
     }
+    
+#appsColoum #coloum3 #app1 #calander{
+  padding-right: 1.25vh;
+}
+#appsColoum #coloum3 #app1 #calanderDetails {
+  font-size: 1.2vh;
+}
+#appsColoum #coloum3 #app1 #calanderDay {
+  font-size: 2.5vh;
+}
       footer #Calls #CallsIcon{font-size: 2.0vh;}
   footer #Contacts #ContactsIcon{font-size: 2.0vh;}
     .dialBtn h5{

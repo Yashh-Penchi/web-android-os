@@ -1164,7 +1164,7 @@ background-color: #181818;
   pointer-events: none;
   overflow: hidden;
   position: absolute;
-  z-index: 185;
+  z-index: 200;
 }
 
 #addContactPage #topHeader {
